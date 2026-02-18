@@ -57,7 +57,24 @@ class HorseRaces:
             inner keys are (str) races, inner values are (int) race times
             EXAMPLE: {'Special Week': {'Tenno Sho Fall': 16.5, 'Tenno Sho Spring': 16.3, 'Teio Sho': 17.0}}
         '''
-        pass
+
+        horse_overview = {}
+
+        races = table[0][1:]
+
+        for row in table[1:]:
+            name = row[0]
+            race_times = row[1:]
+
+            horse_stats = {}
+            for i in range(len(races)):
+                horse_stats[races[i]] = float(race_times[i])
+            
+            horse_overview[name] = horse_stats
+        print(horse_overview)
+        return horse_overview
+
+
 
 ###############################################################################
 ##### TASK 2

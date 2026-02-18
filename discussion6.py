@@ -71,9 +71,7 @@ class HorseRaces:
                 horse_stats[races[i]] = float(race_times[i])
             
             horse_overview[name] = horse_stats
-        print(horse_overview)
         return horse_overview
-
 
 
 ###############################################################################
@@ -92,7 +90,20 @@ class HorseRaces:
             tuple of fastest race name and the time
             EXAMPLE: ('Teio Sho', 14.8)
         '''
-        pass
+        if horse not in self.race_dict:
+            return (None, 999.9)
+        
+        races = self.race_dict[horse] # gets dict of races and times associated with the name
+
+        fastest_time = min(races.values())
+
+        for race in races:
+            if races[race] == shortest_time:
+                fastest_race = races[race]
+        
+        return (fastest_race, fastest_time)
+        
+        
 
 ###############################################################################
 ##### TASK 3

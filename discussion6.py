@@ -98,8 +98,8 @@ class HorseRaces:
         fastest_time = min(races.values())
 
         for race in races:
-            if races[race] == shortest_time:
-                fastest_race = races[race]
+            if races[race] == fastest_time:
+                fastest_race = race
         
         return (fastest_race, fastest_time)
         
